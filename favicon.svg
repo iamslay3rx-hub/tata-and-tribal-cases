@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="blood" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#c8392b"/>
+      <stop offset="100%" stop-color="#7a1d14"/>
+    </linearGradient>
+  </defs>
+
+  <!-- background -->
+  <rect width="128" height="128" rx="24" fill="#0a0a08"/>
+
+  <!-- outer ring -->
+  <circle cx="64" cy="64" r="46"
+          fill="none"
+          stroke="url(#blood)"
+          stroke-width="4"
+          opacity="0.95"/>
+
+  <!-- inner shadow ring -->
+  <circle cx="64" cy="64" r="36"
+          fill="none"
+          stroke="#2a2a26"
+          stroke-width="1"
+          opacity="0.7"/>
+
+  <!-- SX monogram -->
+  <path d="M44 44
+           C44 36, 54 34, 61 39
+           C66 43, 65 49, 58 53
+           L52 56
+           C47 59, 47 65, 53 68
+           C58 71, 64 69, 68 64"
+        fill="none"
+        stroke="#e8e4dc"
+        stroke-width="5"
+        stroke-linecap="round"/>
+
+  <path d="M76 42
+           L52 86
+           M52 42
+           L76 86"
+        fill="none"
+        stroke="url(#blood)"
+        stroke-width="5"
+        stroke-linecap="round"/>
+</svg>
