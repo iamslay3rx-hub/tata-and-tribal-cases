@@ -1,621 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta name="description" content="A chronological documentary record of Tata Group land conflicts, tribal displacement, police violence, and industrial expansion across India from 1907 to present.">
+<p class="case-desc">
+Nearly 1,000 acres of agricultural land were acquired for Tata Motors' Nano manufacturing plant. Farmers and activists challenged the acquisition process, resulting in years of protest and eventual Supreme Court intervention.
+</p>
 
-<meta name="keywords" content="Tata land conflicts, Kalinganagar massacre, Singur protest, tribal displacement India, Adivasi land rights, Tata Steel controversy, industrial displacement India">
+<span class="outcome reversed">Supreme Court Reversed Acquisition</span>
 
-<meta name="author" content="slay3rx">
-
-<meta property="og:title" content="Tata Land Conflicts — Timeline of Displacement">
-<meta property="og:description" content="A chronological record of displacement, police violence, and broken promises affecting Adivasi and farming communities across India.">
-
-<meta property="og:type" content="website">
-
-<meta property="og:url" content="https://iamslay3rx-hub.github.io/tata-and-tribal-cases/">
-
-<meta property="og:image" content="https://iamslay3rx-hub.github.io/tata-and-tribal-cases/preview.jpg">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tata Land Conflicts — Timeline of Displacement</title>
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
-
-  :root {
-    --bg: #0a0a08;
-    --surface: #111110;
-    --border: #2a2a26;
-    --accent: #c8392b;
-    --accent2: #e8944a;
-    --text: #e8e4dc;
-    --muted: #8a857a;
-    --killed: #c8392b;
-    --displaced: #e8944a;
-    --threatened: #d4b84a;
-  }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'IBM Plex Sans', sans-serif;
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* grain texture overlay */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.5;
-  }
-
-  header {
-    padding: 60px 60px 40px;
-    border-bottom: 1px solid var(--border);
-    position: relative;
-  }
-
-  .header-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(28px, 4vw, 52px);
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--text);
-    max-width: 700px;
-  }
-
-  h1 span {
-    color: var(--accent);
-  }
-
-  .subtitle {
-    margin-top: 16px;
-    font-size: 14px;
-    color: var(--muted);
-    font-weight: 300;
-    max-width: 520px;
-    line-height: 1.6;
-  }
-
-  .legend {
-    display: flex;
-    gap: 28px;
-    margin-top: 28px;
-    flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-  }
-
-  .legend-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  /* TIMELINE */
-  .timeline-container {
-    padding: 0 60px 80px;
-    position: relative;
-  }
-
-  .timeline-axis {
-    position: relative;
-    padding-top: 60px;
-  }
-
-  /* vertical line */
-  .timeline-axis::before {
-    content: '';
-    position: absolute;
-    left: 160px;
-    top: 0;
-    bottom: 0;
-    width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--border) 5%, var(--border) 95%, transparent);
-  }
-
-  .case-row {
-    display: grid;
-    grid-template-columns: 160px 1fr;
-    gap: 0;
-    margin-bottom: 0;
-    position: relative;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-  }
-
-  .case-row.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  .year-col {
-    padding: 36px 32px 36px 0;
-    text-align: right;
-    position: relative;
-  }
-
-  .year-label {
-    font-family: 'Playfair Display', serif;
-    font-size: 22px;
-    font-weight: 700;
-    color: var(--muted);
-    line-height: 1;
-  }
-
-  .year-label.active {
-    color: var(--text);
-  }
-
-  /* dot on the line */
-  .year-col::after {
-    content: '';
-    position: absolute;
-    right: -5px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--border);
-    border: 2px solid var(--surface);
-    transition: all 0.3s;
-  }
-
-  .case-row:hover .year-col::after {
-    background: var(--accent);
-    width: 11px;
-    height: 11px;
-    right: -6px;
-  }
-
-  .case-content {
-    padding: 28px 0 28px 40px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .case-row:last-child .case-content {
-    border-bottom: none;
-  }
-
-  .case-header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 20px;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-  }
-
-  .case-name {
-    font-family: 'Playfair Display', serif;
-    font-size: 18px;
-    font-weight: 700;
-    color: var(--text);
-    flex: 1;
-    min-width: 200px;
-  }
-
-  .case-location {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    text-transform: uppercase;
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    white-space: nowrap;
-    align-self: flex-start;
-    margin-top: 2px;
-  }
-
-  .case-desc {
-    font-size: 13px;
-    color: #a09a90;
-    line-height: 1.65;
-    margin-bottom: 16px;
-    max-width: 560px;
-    font-weight: 300;
-  }
-
-  /* impact bars */
-  .impact-row {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .impact-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .impact-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    width: 90px;
-    flex-shrink: 0;
-    color: var(--muted);
-  }
-
-  .bar-track {
-    flex: 1;
-    max-width: 320px;
-    height: 6px;
-    background: var(--border);
-    border-radius: 3px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .bar-fill {
-    height: 100%;
-    border-radius: 3px;
-    width: 0%;
-    transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  .bar-fill.killed { background: var(--killed); }
-  .bar-fill.displaced { background: var(--displaced); }
-  .bar-fill.threatened { background: var(--threatened); }
-
-  .bar-value {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    font-weight: 500;
-    white-space: nowrap;
-    min-width: 80px;
-  }
-
-  .bar-value.killed { color: var(--killed); }
-  .bar-value.displaced { color: var(--displaced); }
-  .bar-value.threatened { color: var(--threatened); }
-
-  /* outcome badge */
-  .outcome {
-    display: inline-block;
-    margin-top: 12px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.08em;
-    padding: 3px 9px;
-    border-radius: 2px;
-    text-transform: uppercase;
-  }
-
-  .outcome.halted { background: rgba(212, 184, 74, 0.12); color: #d4b84a; border: 1px solid rgba(212,184,74,0.3); }
-  .outcome.ongoing { background: rgba(200, 57, 43, 0.12); color: var(--killed); border: 1px solid rgba(200,57,43,0.3); }
-  .outcome.reversed { background: rgba(74, 160, 74, 0.12); color: #6dc26d; border: 1px solid rgba(74,160,74,0.3); }
-  .outcome.withdrawn { background: rgba(100, 140, 200, 0.12); color: #80aadd; border: 1px solid rgba(100,140,200,0.3); }
-
-  /* totals footer */
-  .totals-bar {
-    margin: 48px 0 0;
-    padding: 36px 40px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--accent);
-    display: flex;
-    gap: 60px;
-    flex-wrap: wrap;
-  }
-
-  .total-item {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .total-num {
-    font-family: 'Playfair Display', serif;
-    font-size: 38px;
-    font-weight: 900;
-    line-height: 1;
-  }
-
-  .total-num.killed { color: var(--killed); }
-  .total-num.displaced { color: var(--displaced); }
-  .total-num.threatened { color: var(--threatened); }
-
-  .total-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* scrollbar */
-  ::-webkit-scrollbar { width: 4px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-  @media (max-width: 640px) {
-    header, .timeline-container { padding-left: 20px; padding-right: 20px; }
-    .timeline-axis::before { left: 70px; }
-    .year-col { padding-right: 16px; }
-    .year-label { font-size: 15px; }
-    .case-content { padding-left: 24px; }
-    .case-row { grid-template-columns: 70px 1fr; }
-    .totals-bar { gap: 28px; }
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <div class="header-label">Documentary Record · 1907 – Present</div>
-  <h1>Tata Group &<br><span>Tribal Land Conflicts</span></h1>
-  <p class="subtitle">A chronological record of displacement, police violence, and broken promises affecting Adivasi and farming communities across India.</p>
-  <div class="legend">
-    <div class="legend-item"><div class="legend-dot" style="background:var(--killed)"></div>People Killed</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--displaced)"></div>Displaced / Directly Affected</div>
-    <div class="legend-item"><div class="legend-dot" style="background:var(--threatened)"></div>Livelihoods Threatened</div>
-  </div>
-</header>
-
-<div class="timeline-container">
-  <div class="timeline-axis" id="timeline">
-  </div>
-
-  <div class="totals-bar">
-    <div class="total-item">
-      <div class="total-num killed" id="total-killed">0</div>
-      <div class="total-label">Documented Deaths</div>
-    </div>
-    <div class="total-item">
-      <div class="total-num displaced" id="total-displaced">0</div>
-      <div class="total-label">People Displaced</div>
-    </div>
-    <div class="total-item">
-      <div class="total-num threatened" id="total-threatened">0</div>
-      <div class="total-label">Livelihoods Threatened</div>
-    </div>
-  </div>
 </div>
+</article>
+
+</div>
+</section>
+
+<section style="padding:60px; border-top:1px solid #2a2a26;">
+
+<h2 style="font-family:'Playfair Display', serif; margin-bottom:24px;">
+Key Themes Covered
+</h2>
+
+<ul style="line-height:2; color:#b6b0a4; padding-left:20px;">
+<li>Tribal land acquisition conflicts in India</li>
+<li>Adivasi displacement caused by mining and industrial expansion</li>
+<li>Police firing incidents during land protests</li>
+<li>Environmental destruction linked to steel and mining projects</li>
+<li>Industrialization and indigenous resistance movements</li>
+<li>Legal disputes surrounding land acquisition laws</li>
+<li>Historical conflicts involving Tata Steel and Tata Motors projects</li>
+</ul>
+
+</section>
+
+<section style="padding:60px; border-top:1px solid #2a2a26;">
+
+<h2 style="font-family:'Playfair Display', serif; margin-bottom:24px;">
+Sources & References
+</h2>
+
+<ul style="line-height:2; color:#b6b0a4; padding-left:20px;">
+<li>Supreme Court of India — Singur Land Judgement (2016)</li>
+<li>People's Union for Civil Liberties (PUCL) Reports</li>
+<li>Environmental Justice Atlas</li>
+<li>Independent investigative journalism archives</li>
+<li>Academic publications on industrial displacement in India</li>
+<li>Human rights documentation related to Kalinganagar and Bastar</li>
+</ul>
+
+</section>
+
+</main>
+
+<footer style="padding:40px 60px; border-top:1px solid #2a2a26; color:#7f7a70; font-size:13px;">
+
+<p>
+Independent documentary archive examining industrial conflict,
+land acquisition, displacement, and indigenous resistance movements in India.
+</p>
+
+</footer>
 
 <script>
-const cases = [
-  {
-    year: "1907",
-    name: "Jamshedpur Founding & Saranda Mining",
-    location: "Jharkhand",
-    desc: "Tata Iron & Steel Company established on ancestral Ho and Munda tribal land. Kusumgaj trees vital to Adivasi livelihoods removed; tribals pushed into forced mine labor. Entire Kalimati (Tatanagar) region uprooted over subsequent decades.",
-    killed: 0,
-    displaced: 50000,
-    threatened: 0,
-    killedLabel: "—",
-    displacedLabel: "50,000+",
-    threatenedLabel: null,
-    outcome: "ongoing",
-    outcomeLabel: "Ongoing"
-  },
-  {
-    year: "1980",
-    name: "Gua Massacre",
-    location: "West Singhbhum, Jharkhand",
-    desc: "Tribals in Noamundi protested Tata's plans for a new aerodrome on their land. At Tata's urging, state forces opened fire on unarmed protesters the following day, killing eight people including those seeking medical treatment.",
-    killed: 8,
-    displaced: 0,
-    threatened: 5000,
-    killedLabel: "8 killed",
-    displacedLabel: null,
-    threatenedLabel: "5,000+",
-    outcome: "halted",
-    outcomeLabel: "Protest Suppressed"
-  },
-  {
-    year: "1993",
-    name: "UAIL Bauxite Mining, Baphlimali Hills",
-    location: "Rayagada, Odisha",
-    desc: "Tata joined Norsk Hydro, Hindalco & Alcan in a bauxite mining consortium threatening sacred hills. Three protesters were shot dead by police at Maikanch village on Dec 16, 2000. Tata withdrew from consortium in 2001 citing volatile conditions.",
-    killed: 3,
-    displaced: 10000,
-    threatened: 0,
-    killedLabel: "3 killed",
-    displacedLabel: "10,000+ at risk",
-    threatenedLabel: null,
-    outcome: "withdrawn",
-    outcomeLabel: "Tata Withdrew (2001)"
-  },
-  {
-    year: "1995",
-    name: "Gopalpur-on-Sea Steel Plant",
-    location: "Ganjam, Odisha",
-    desc: "Tata planned a mega steel plant requiring displacement of 20,000 people from 25 villages. Two villages were forcefully displaced before the project collapsed. During a 1997 protest in Sindhigaon, police opened fire and two women were crushed to death in the chaos.",
-    killed: 2,
-    displaced: 5000,
-    threatened: 20000,
-    killedLabel: "2 killed",
-    displacedLabel: "5,000 displaced",
-    threatenedLabel: "20,000 threatened",
-    outcome: "halted",
-    outcomeLabel: "Project Abandoned"
-  },
-  {
-    year: "1990s",
-    name: "Lake Chilika Aquaculture Project",
-    location: "Odisha Coast",
-    desc: "Tata proposed converting large portions of Lake Chilika, a Ramsar wetland of international significance, into an aquaculture farm. Mass protests by 1,20,000 fisherfolk whose entire livelihoods depended on the lake forced a quick shelving of the project.",
-    killed: 0,
-    displaced: 0,
-    threatened: 120000,
-    killedLabel: null,
-    displacedLabel: null,
-    threatenedLabel: "1,20,000 livelihoods",
-    outcome: "halted",
-    outcomeLabel: "Project Shelved"
-  },
-  {
-    year: "2006",
-    name: "Kalinganagar Massacre",
-    location: "Jajpur, Odisha",
-    desc: "Police opened fire on ~800 tribal protesters opposing Tata Steel's boundary wall construction on ancestral land. 13–16 Adivasis killed; bodies reportedly mutilated. Over 5,000 displaced, 1,500 families later impacted by industrial pollution and disease.",
-    killed: 14,
-    displaced: 5000,
-    threatened: 10000,
-    killedLabel: "14 killed, 37+ injured",
-    displacedLabel: "5,000 displaced",
-    threatenedLabel: "10,000+ affected",
-    outcome: "ongoing",
-    outcomeLabel: "Plant Operational — No Accountability"
-  },
-  {
-    year: "2006",
-    name: "Singur Nano Plant",
-    location: "Hooghly, West Bengal",
-    desc: "997 acres of fertile multi-crop farmland acquired via state force for Tata's Nano car factory. ~15,000 people dependent on the land; compensation deemed inadequate. Tata relocated to Gujarat in 2008. Supreme Court declared acquisition illegal in 2016.",
-    killed: 0,
-    displaced: 13000,
-    threatened: 15000,
-    killedLabel: null,
-    displacedLabel: "13,000+ displaced",
-    threatenedLabel: "15,000 livelihoods",
-    outcome: "reversed",
-    outcomeLabel: "Supreme Court Reversed (2016)"
-  },
-  {
-    year: "2010s",
-    name: "Bastar Steel Plant",
-    location: "Bastar, Chhattisgarh",
-    desc: "Tata acquired tribal land for a steel plant in Bastar; mandatory public hearings were held 30 km from affected villages, effectively silencing opposition. The promised plant was never built. The Chhattisgarh government eventually returned the acquired land.",
-    killed: 0,
-    displaced: 0,
-    threatened: 8000,
-    killedLabel: null,
-    displacedLabel: null,
-    threatenedLabel: "8,000+ threatened",
-    outcome: "reversed",
-    outcomeLabel: "Land Returned"
-  }
-];
+// OPTIONAL:
+// Keep ONLY your animations here.
+// Avoid generating content dynamically via JavaScript.
 
-// max values for bar scaling
-const maxKilled = 14;
-const maxDisplaced = 50000;
-const maxThreatened = 120000;
-
-const timeline = document.getElementById('timeline');
-
-cases.forEach((c, i) => {
-  const row = document.createElement('div');
-  row.className = 'case-row';
-  row.style.transitionDelay = `${i * 80}ms`;
-
-  const impactHTML = [];
-  if (c.killedLabel) impactHTML.push(`
-    <div class="impact-item">
-      <span class="impact-label">Killed</span>
-      <div class="bar-track"><div class="bar-fill killed" data-pct="${c.killed / maxKilled * 100}"></div></div>
-      <span class="bar-value killed">${c.killedLabel}</span>
-    </div>`);
-  if (c.displacedLabel) impactHTML.push(`
-    <div class="impact-item">
-      <span class="impact-label">Displaced</span>
-      <div class="bar-track"><div class="bar-fill displaced" data-pct="${Math.min(c.displaced / maxDisplaced * 100, 100)}"></div></div>
-      <span class="bar-value displaced">${c.displacedLabel}</span>
-    </div>`);
-  if (c.threatenedLabel) impactHTML.push(`
-    <div class="impact-item">
-      <span class="impact-label">Threatened</span>
-      <div class="bar-track"><div class="bar-fill threatened" data-pct="${Math.min(c.threatened / maxThreatened * 100, 100)}"></div></div>
-      <span class="bar-value threatened">${c.threatenedLabel}</span>
-    </div>`);
-
-  row.innerHTML = `
-    <div class="year-col">
-      <div class="year-label ${c.killed > 0 ? 'active' : ''}">${c.year}</div>
-    </div>
-    <div class="case-content">
-      <div class="case-header">
-        <div class="case-name">${c.name}</div>
-        <div class="case-location">${c.location}</div>
-      </div>
-      <p class="case-desc">${c.desc}</p>
-      <div class="impact-row">${impactHTML.join('')}</div>
-      <span class="outcome ${c.outcome}">${c.outcomeLabel}</span>
-    </div>`;
-
-  timeline.appendChild(row);
-});
-
-// Intersection observer to animate rows in
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      // animate bars
-      entry.target.querySelectorAll('.bar-fill').forEach(bar => {
-        setTimeout(() => {
-          bar.style.width = bar.dataset.pct + '%';
-        }, 200);
-      });
-      observer.unobserve(entry.target);
     }
   });
 }, { threshold: 0.15 });
 
-document.querySelectorAll('.case-row').forEach(row => observer.observe(row));
-
-// animate totals counter
-function animateCount(el, target, duration = 1800, suffix = '') {
-  const start = performance.now();
-  const isLarge = target > 999;
-  const update = (now) => {
-    const elapsed = now - start;
-    const progress = Math.min(elapsed / duration, 1);
-    const eased = 1 - Math.pow(1 - progress, 3);
-    const current = Math.round(eased * target);
-    el.textContent = isLarge ? current.toLocaleString() + '+' : current + (target === 0 ? '' : '+');
-    if (progress < 1) requestAnimationFrame(update);
-  };
-  requestAnimationFrame(update);
-}
-
-// trigger counter when totals bar visible
-const totalsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      animateCount(document.getElementById('total-killed'), 27);
-      animateCount(document.getElementById('total-displaced'), 73000);
-      animateCount(document.getElementById('total-threatened'), 178000);
-      totalsObserver.disconnect();
-    }
-  });
-}, { threshold: 0.5 });
-
-totalsObserver.observe(document.querySelector('.totals-bar'));
+document.querySelectorAll('.case-row').forEach(row => {
+  observer.observe(row);
+});
 </script>
+
 </body>
 </html>
